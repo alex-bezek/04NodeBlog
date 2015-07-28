@@ -11,8 +11,9 @@ var db =require('monk')('localhost/nodeblog');
 var multer = require('multer');
 var flash = require('connect-flash');
 
-
-//var categories = require('./routes/categories');
+var routes = require('./routes/index');
+var posts = require('./routes/posts');
+var categories = require('./routes/categories');
 
 var app = express();
 
@@ -31,9 +32,6 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-
-var routes = require('./routes/index');
-var posts = require('./routes/posts');
 
 // Express Session
 app.use(session({
@@ -77,7 +75,7 @@ app.use(function(req,res,next){
 
 app.use('/', routes);
 app.use('/posts', posts);
-//app.use('/categories', categories);
+app.use('/categories', categories);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

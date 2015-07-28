@@ -19,7 +19,7 @@ router.get('/add', function(req, res, next){
 	});
 });
 
-router.post('/add', function(req, res, next){
+router.post('/add',cpUpload , function(req, res, next){
 	console.log(req.body, req.file);
 
 	// Get Form Values
@@ -30,13 +30,16 @@ router.post('/add', function(req, res, next){
 	var date 		= new Date();
 
 	if(req.file){
+		console.log('FOUND THIS FILE');
+		console.log('file: ',  req.file);
 		var mainImageOriginalName 	= req.file.originalname;
-		var mainImageName 			= req.file.name;
+		var mainImageName 			= req.file.filename;
 		var mainImageMime    		= req.file.mimetype;
 		var mainImagePath    		= req.file.path;
 		var mainImageExt    		= req.file.extension;
 		var mainImageSize    		= req.file.size;
 	} else {
+		console.log('No Image Found!!');
 		var mainImageName = 'noimage.png';
 	}
 

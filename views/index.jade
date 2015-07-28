@@ -8,6 +8,7 @@ block content
 					a(href='/posts/show/#{post._id}')
 						=post.title
 				p.meta Posted in #{post.category} by #{post.author} on #{moment(post.date).format("MM-DD-YYYY")}
+				img(src='/images/uploads/#{post.mainimage}')
 				!=post.body
 				a.more(href='/posts/show/#{post._id}') Read More
 	else
