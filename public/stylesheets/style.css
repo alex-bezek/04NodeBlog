@@ -42,6 +42,15 @@ a{
 	text-decoration: none;
 }
 
+.meta a{
+	color: #0000EE;
+	text-decoration: underline;
+}
+
+.fashionLinks{
+	color: ;
+}
+
 nav{
 	background:#404137;
 	color:#fff;
@@ -49,6 +58,7 @@ nav{
 	height:40px;
 	padding:20px 0 0 10px;
 	font-size:18px;
+	margin-bottom: 20px;
 }
 
 nav li{
@@ -62,7 +72,7 @@ nav a{
 	color:#fff;
 }
 
-nav a.current, nav a:hover{
+nav a.current, nav a:hover, .more:hover{
 	background:#83cd29;
 	color:#000;
 }
@@ -136,4 +146,26 @@ ul.success li{
   	background-color: #dff0d8;
   	border-color: #d6e9c6;
   	list-style:none;
+}
+
+footer{
+	margin-top:40px;
+	text-align: center;
+	height:30px;
+	border-top:1px solid #ccc;
+}
+
+.comment-form{
+	margin:30px 0;
+}
+
+.comment{
+	background:#ccc;
+	padding:5px;
+	border:#666 solid 1px;
+	margin:15px 0 20px;
+}
+
+.comment-name{
+	font-weight: bold;
 }

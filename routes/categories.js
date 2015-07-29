@@ -9,6 +9,16 @@ router.get('/add', function(req, res, next) {
 	});
 });
 
+router.get('/show/:categoryTitle', function(req, res, next){
+	var db = req.db;
+  	var posts = db.get('posts');
+  	posts.find({category: req.params.categoryTitle}, {}, function(err, posts){
+  		res.render('index', {
+  		"posts": posts
+  		});
+  	});
+})
+
 router.post('/add', function(req, res, next){
 	// Get Form Values
 	var title 		= req.body.title;

@@ -7,9 +7,11 @@ block content
 				h1
 					a(href='/posts/show/#{post._id}')
 						=post.title
-				p.meta Posted in #{post.category} by #{post.author} on #{moment(post.date).format("MM-DD-YYYY")}
+				p.meta Posted in 
+					a(href='/categories/show/#{post.category}') #{post.category}
+					span  by #{post.author} on #{moment(post.date).format("MM-DD-YYYY")}
 				img(src='/images/uploads/#{post.mainimage}')
-				!=post.body
+				!=truncateText(post.body, 400) + "..."
 				a.more(href='/posts/show/#{post._id}') Read More
 	else
 		p.noposts There are no posts to display currently. Give the bloggers some encouragement!!
